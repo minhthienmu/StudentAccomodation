@@ -12,4 +12,18 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // login() {
+  //   let body = {
+  //     username: "thientm",
+  //     password: "thien9999"
+  //   }
+  
+  //   this.apiService.httpPost('login', body, (res) => {
+  //     if (res.code === 200) {
+  //       localStorage.setItem('token', JSON.stringify(res.data));
+  //       console.log(res.data);
+  //     }
+  //   },() => {});
+  // }
+
 }

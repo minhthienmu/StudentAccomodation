@@ -57,7 +57,6 @@ export class HomeComponent {
 
       this.fetchAccomodations();
 
-
       this.sortOptions = [
           {label: 'Price High to Low', value: '!price'},
           {label: 'Price Low to High', value: 'price'}
@@ -80,7 +79,7 @@ export class HomeComponent {
   }
 
   showDetail(id) {
-    console.log(id);
+    this.getAccomodationDetail(id);
   }
 
   filter() {
@@ -93,9 +92,20 @@ export class HomeComponent {
   fetchAccomodations() {
     this.apiService.httpGet('getAccomodations', (res) => {
       if (res.code === 200) {
-        this.products = res.message;
+        this.products = res.data;
       }
     }, () => {});
   }
- 
+
+  getAccomodationDetail(id: number) {
+    let params = [
+      {key: "id", value: id}
+    ];
+
+    this.apiService.httpGetWithParams('getAccomodationDetail', params, (res) => {
+      if (res.code === 200) {
+        console.log(res.data);
+      }
+    }, ()=>{});
+  }
 }
