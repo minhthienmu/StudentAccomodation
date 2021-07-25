@@ -13,12 +13,17 @@ import { ProductService } from './productservice';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpConfigService } from './services/http-config.service';
 import { ApiClientService } from './services/api-client.service';
+import { DetailComponent } from './components/detail/detail.component';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { SliderModule } from 'primeng/slider';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailComponent
   ],
   imports: [
     HttpClientModule,
@@ -26,6 +31,9 @@ import { ApiClientService } from './services/api-client.service';
     AppRoutingModule,
     MyPrimeNgComponentsModule,
     FormsModule,
+    CarouselModule,
+    ButtonModule,
+    SliderModule
   ],
   providers: [ProductService, HttpConfigService, ApiClientService],
   bootstrap: [AppComponent]

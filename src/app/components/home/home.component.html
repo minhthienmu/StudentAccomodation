@@ -3,21 +3,26 @@
         <p-card>
             <div class="p-fluid" style="margin-bottom: 2rem">
                 <span style="font-weight: bold;">Tìm kiếm</span>
-            </div>        
+            </div>
             <div class="p-fluid">
                 <div class="p-field">
                     <label for="firstname1">Quận</label>
-                    <input id="firstname1" type="text" pInputText [(ngModel)]="address" #name="ngModel"> 
+                    <input id="firstname1" type="text" pInputText [(ngModel)]="address" #name="ngModel">
                 </div>
                 <div class="p-field">
-                    <label for="lastname1">Giá tiền</label>
-                    <input id="lastname1" type="number" pInputText [(ngModel)]="price" #name="ngModel"> 
+                    <label for="lastname1">Giá tiền: &nbsp;</label>
+                    <span>{{rangeValues[0] + ' - ' + rangeValues[1]}}</span>
+                    <!-- <input id="lastname1" type="number" pInputText [(ngModel)]="price" #name="ngModel">  -->
+                    <p-slider [(ngModel)]="rangeValues" [range]="true" [step]="100000"
+                      [min]="500000"
+                      [max]="10000000"
+                    ></p-slider>
                 </div>
             </div>
             <p-button class="p-button-success" label="Tìm kiếm" (onClick)="filter()"></p-button>
-        </p-card>   
+        </p-card>
      </div>
-   
+
     <div class="p-col-9">
         <p-card>
             <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name"
@@ -31,7 +36,7 @@
                     </span>
                 </div>
             </ng-template>
-            
+
            <ng-template let-product pTemplate="gridItem">
                 <div class="p-col-12 p-md-4">
                     <div class="product-grid-item card">
@@ -52,13 +57,13 @@
                             <div style="margin-top: 1rem">
                                 <p-button label="Chi tiết" (onClick)="showDetail(product._id)"></p-button>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
             </ng-template>
         </p-dataView>
-        </p-card>        
+        </p-card>
     </div>
 </div>

@@ -12,7 +12,7 @@ import { APIService } from '../../services/api.service';
 })
 
 export class HomeComponent {
-  sortKey: any; 
+  sortKey: any;
   products: Product[];
   price: number;
   address: string;
@@ -23,7 +23,9 @@ export class HomeComponent {
 
   sortField: string;
 
-  constructor(private productService: ProductService, 
+  rangeValues = [500000, 10000000];
+
+  constructor(private productService: ProductService,
               private primengConfig: PrimeNGConfig,
               private apiService: APIService,
               ) { }
@@ -65,7 +67,7 @@ export class HomeComponent {
 
       this.primengConfig.ripple = true;
   }
-  
+
   onSortChange(event) {
       let value = event.value;
 
@@ -97,5 +99,5 @@ export class HomeComponent {
       }
     }, () => {});
   }
- 
+
 }
