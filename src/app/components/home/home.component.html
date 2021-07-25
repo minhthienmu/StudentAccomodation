@@ -43,14 +43,14 @@
                         </div>
                         <div class="product-grid-item-content">
                             <div class="p-mb-3">
-                                <img src="assets/images/{{product.image}}" [alt]="product.name" class="product-image" width="100" height="100"/>
+                                <img [src]="product.image" [alt]="product.name" class="product-image" width="100" height="100"/>
                             </div>
                             <div class="product-name">{{product.name}}</div>
                             <div>{{product.address}}</div>
                             <div class="product-description">{{product.price}} VNĐ</div>
                             <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating>
                             <div style="margin-top: 1rem">
-                                <p-button label="Chi tiết" (onClick)="showDetail(product.id)"></p-button>
+                                <p-button label="Chi tiết" (onClick)="showDetail(product._id)"></p-button>
                             </div>
                             
                         </div>

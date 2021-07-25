@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductService } from './productservice';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpConfigService } from './services/http-config.service';
+import { ApiClientService } from './services/api-client.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     MyPrimeNgComponentsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [ProductService],
+  providers: [ProductService, HttpConfigService, ApiClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
