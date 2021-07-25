@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { AuthStorage } from '../helpers/auth-storage';
 
 @Injectable()
 export class HttpConfigService {
@@ -10,20 +11,11 @@ export class HttpConfigService {
 	
     constructor(
         private http: HttpClient,
+        private authStorage: AuthStorage,
     ) { }
 
-    getCurrentUser() {
-        try {
-            let token = localStorage.getItem('token') ? localStorage.getItem('token') : '';
-            return JSON.parse(token);
-        }
-        catch {
-            return null;
-        }
-    }
-
     initHttpHeader() {
-        let currentUser = this.getCurrentUser();
+        let currentUser = this.authStorage.getCurrentUser();
         if (currentUser == null) {
             this._httpOptions.headers = new HttpHeaders({
                 'Content-Type': 'application/json',
