@@ -1,0 +1,18 @@
+.detail-container {
+  .content {
+    margin-bottom: 10px;
+
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .detail-img {
+    img {
+      width: 100%;
+      height: auto;
+      -o-object-fit: cover;
+         object-fit: cover;
+    }
+  }
+}
