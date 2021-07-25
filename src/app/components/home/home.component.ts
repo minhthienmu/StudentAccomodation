@@ -4,6 +4,7 @@ import { Product } from '../../product';
 import {SelectItem} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { APIService } from '../../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -25,38 +26,12 @@ export class HomeComponent {
 
   rangeValues = [500000, 10000000];
 
-  constructor(private productService: ProductService,
-              private primengConfig: PrimeNGConfig,
+  constructor(private primengConfig: PrimeNGConfig,
               private apiService: APIService,
+              private router: Router
               ) { }
 
   ngOnInit() {
-      // let data = [
-      //   {
-      //     id: "1",
-      //     code: "1",
-      //     name: "Nhà 1",
-      //     description: "Mô tả 1",
-      //     rating: 5,
-      //     category: "Căn hộ",
-      //     price: 1000000,
-      //     image: "https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      //     address: "Thủ Đức"
-      //   },
-      //   {
-      //     id: "2",
-      //     code: "2",
-      //     name: "Nhà 2",
-      //     description: "Mô tả 2",
-      //     rating: 5,
-      //     category: "Nhà trọ",
-      //     price: 1000000,
-      //     image: "https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      //     address: "Quận 9"
-      //   }
-      // ]
-      // this.products = data;
-
       this.fetchAccomodations();
 
       this.sortOptions = [
@@ -81,7 +56,7 @@ export class HomeComponent {
   }
 
   showDetail(id) {
-    this.getAccomodationDetail(id);
+    this.router.navigate(['/detail', id]);
   }
 
   filter() {
