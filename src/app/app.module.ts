@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ProductService } from './productservice';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpConfigService } from './services/http-config.service';
 import { ApiClientService } from './services/api-client.service';
@@ -35,7 +34,7 @@ import { SliderModule } from 'primeng/slider';
     ButtonModule,
     SliderModule
   ],
-  providers: [ProductService, HttpConfigService, ApiClientService],
+  providers: [HttpConfigService, ApiClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
