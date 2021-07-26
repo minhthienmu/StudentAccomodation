@@ -1,5 +1,54 @@
 <!-- Toolbar -->
+<p-toast></p-toast>
+
 <div class="toolbar" role="banner">
   <h2>Student Accomodation</h2>
-  
+  <div *ngIf="showOption" class="nav-user">
+    <div>
+      <button type="button" class="p-button-lg" pButton pRipple icon="pi pi-bars" (click)="menu.toggle($event)"></button>
+      <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    </div>
+  </div>
+  <div *ngIf="showLogin" class="nav-user">
+    <div>
+      <button pButton pRipple type="button" label="Sign Up" (click)="signUp()" style="margin-right: 0.5rem"></button>
+      <button pButton pRipple type="button" label="Sign In"(click)="signIn()"></button>
+    </div>
+  </div> 
 </div>
+
+<p-dialog header="Sign In" [(visible)]="displaySignin" [style]="{width: '500px'}" [baseZIndex]="10000">
+    <div class="p-field">
+      <label for="username">Username: </label>
+      <input type="username" aria-describedby="name" pInputText [(ngModel)]="user.username" autocomplete="off"/>
+    </div>
+    <div class="p-field">
+      <label for="password">Password: </label>
+      <input type="password" pPassword [(ngModel)]="user.password" autocomplete="off"/>
+    </div>
+  <ng-template pTemplate="footer">
+    <div style="text-align: center">
+      <button pButton type="button" (click)="confirmSignIn()" label="Sign In" styleClass="p-button-text"></button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<p-dialog header="Sign Up" [(visible)]="displaySignup" [style]="{width: '500px'}" [baseZIndex]="10000">
+  <div class="p-field">
+    <label for="username">Username: </label>
+    <input type="username" aria-describedby="name" pInputText [(ngModel)]="user.username" autocomplete="off"/>
+  </div>
+  <div class="p-field">
+    <label for="password">Password: </label>
+    <input type="password" pPassword [(ngModel)]="user.password" autocomplete="off"/>
+  </div>
+  <div class="p-field" style="height: 120px">
+    <label for="password">Bạn là: </label>
+    <p-dropdown [options]="roles" [(ngModel)]="user.roles" optionLabel="value"></p-dropdown>
+  </div>
+<ng-template pTemplate="footer">
+  <div style="text-align: center">
+    <button pButton type="button" (click)="confirmSignUp()" label="Sign Up" styleClass="p-button-text"></button>
+  </div>
+</ng-template>
+</p-dialog>

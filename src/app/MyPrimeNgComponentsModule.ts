@@ -14,6 +14,9 @@ import {InputNumberModule} from 'primeng/inputnumber';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {FileUploadModule} from 'primeng/fileupload';
 import {TableModule} from 'primeng/table';
+import { MenuModule } from 'primeng/menu';
+import {PasswordModule} from 'primeng/password';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [],
@@ -32,7 +35,10 @@ import {TableModule} from 'primeng/table';
     InputNumberModule,
     InputTextareaModule,
     FileUploadModule,
-    TableModule
+    TableModule,
+    MenuModule,
+    PasswordModule,
+    ToastModule
   ],
   exports: [
     ButtonModule,
@@ -49,8 +55,11 @@ import {TableModule} from 'primeng/table';
     InputNumberModule,
     InputTextareaModule,
     FileUploadModule,
-    TableModule
-  ]
+    TableModule,
+    MenuModule,
+    PasswordModule,
+    ToastModule
+  ],
 })
 export class MyPrimeNgComponentsModule {
 }

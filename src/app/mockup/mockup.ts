@@ -111,3 +111,14 @@ export const categories = [
     value: 'Nhà nguyên căn',
   }
 ]
+
+export const roles = [
+  {
+    key: 1,
+    value: 'Sinh Viên'
+  },
+  {
+    key: 2,
+    value: 'Người cho thuê'
+  }
+]
