@@ -16,6 +16,9 @@ import { DetailComponent } from './components/detail/detail.component';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { SliderModule } from 'primeng/slider';
+import { DropdownModule } from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { SliderModule } from 'primeng/slider';
     FormsModule,
     CarouselModule,
     ButtonModule,
-    SliderModule
+    SliderModule,
+    DropdownModule,
+    BrowserAnimationsModule
   ],
   providers: [HttpConfigService, ApiClientService],
   bootstrap: [AppComponent]
