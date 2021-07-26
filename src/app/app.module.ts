@@ -16,7 +16,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { ListPostsComponent } from './components/list-posts/list-posts.component'
-
+import { PostListComponent } from './components/admin/post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { ListPostsComponent } from './components/list-posts/list-posts.component
     NavbarComponent,
     DetailComponent,
     AddPostComponent,
-    ListPostsComponent
+    ListPostsComponent,
+    PostListComponent
   ],
   imports: [
     HttpClientModule,

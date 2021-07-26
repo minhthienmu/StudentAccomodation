@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddPostComponent } from './components/add-post/add-post.component';
+import { PostListComponent } from './components/admin/post-list/post-list.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListPostsComponent } from './components/list-posts/list-posts.component';
@@ -10,7 +11,7 @@ const routes: Routes = [
   { path: 'detail', component: DetailComponent },
   { path: 'add-post', component: AddPostComponent },
   { path: 'list-posts', component: ListPostsComponent},
-
+  { path: 'admin/post-list', component: PostListComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', component: HomeComponent },
 ];

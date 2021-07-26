@@ -35,6 +35,7 @@ export class HomeComponent {
               ) { }
 
   ngOnInit() {
+      this.districts.unshift({ key: "Tất cả", value: "Tất cả"});
       this.fetchAccomodations();
 
       this.sortOptions = [
