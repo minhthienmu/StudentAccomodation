@@ -15,7 +15,6 @@ import { ApiClientService } from './services/api-client.service';
 import { DetailComponent } from './components/detail/detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddPostComponent } from './components/add-post/add-post.component';
-import { ListPostsComponent } from './components/list-posts/list-posts.component'
 import { PostListComponent } from './components/admin/post-list/post-list.component';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { PostListComponent } from './components/admin/post-list/post-list.compon
     NavbarComponent,
     DetailComponent,
     AddPostComponent,
-    ListPostsComponent,
     PostListComponent
   ],
   imports: [

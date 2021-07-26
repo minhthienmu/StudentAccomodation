@@ -13,6 +13,7 @@ import { SliderModule } from 'primeng/slider';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {FileUploadModule} from 'primeng/fileupload';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [],
@@ -30,7 +31,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     SliderModule,
     InputNumberModule,
     InputTextareaModule,
-    FileUploadModule
+    FileUploadModule,
+    TableModule
   ],
   exports: [
     ButtonModule,
@@ -46,7 +48,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     SliderModule,
     InputNumberModule,
     InputTextareaModule,
-    FileUploadModule
+    FileUploadModule,
+    TableModule
   ]
 })
 export class MyPrimeNgComponentsModule {
