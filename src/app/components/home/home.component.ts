@@ -6,6 +6,10 @@ import { Router } from '@angular/router';
 
 export const districts = [
   {
+    key: 0,
+    value: 'Tất cả'
+  },
+  {
     key: 1,
     value: 'Quận 1'
   },
