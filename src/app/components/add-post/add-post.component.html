@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="p-grid">
     <div class="p-col-2"></div>
     <div class="p-col-8">
@@ -24,7 +25,7 @@
             </div>
             <div class="p-field">
                 <label for="description">Upload Ảnh: </label>
-                <p-fileUpload name="images[]" customUpload="true" multiple="multiple" fileLimit="4" (uploadHandler)="onUpload($event)">
+                <p-fileUpload name="images[]" customUpload="true" multiple="multiple" fileLimit="3" (uploadHandler)="onUpload($event)">
                     <ng-template pTemplate="content">
                         <ul *ngIf="uploadedFiles.length">
                             <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>

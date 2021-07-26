@@ -16,7 +16,7 @@ export class HomeComponent {
   products: any[] = [];
   price: number;
   address: string;
-  districts: {key: string, value: string}[] = districts;
+  districts: {key: string, value: string}[] = [...districts];
   selectedDistrict: string = districts[0].value;
 
   selectedPrice = {min:50000, max: 10000000};

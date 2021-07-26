@@ -2,7 +2,7 @@
 <p-toast></p-toast>
 
 <div class="toolbar" role="banner">
-  <h2>Student Accomodation</h2>
+  <div class="title-page" (click)="goHomePage()"><h2>Student Accomodation</h2></div>
   <div *ngIf="showOption" class="nav-user">
     <div>
       <button type="button" class="p-button-lg" pButton pRipple icon="pi pi-bars" (click)="menu.toggle($event)"></button>

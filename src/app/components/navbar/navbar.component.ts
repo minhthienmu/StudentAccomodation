@@ -70,6 +70,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  goHomePage() {
+    this.router.navigate(["/"]);
+  }
+
   post() {
     this.router.navigate(["/add-post"]);
   }
@@ -83,6 +87,7 @@ export class NavbarComponent implements OnInit {
     this.showOption = false;
     localStorage.clear();
     this.ngOnInit();
+    this.router.navigate(['/']);
   }
 
   signUp() {
