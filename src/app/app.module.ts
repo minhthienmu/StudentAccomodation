@@ -13,11 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpConfigService } from './services/http-config.service';
 import { ApiClientService } from './services/api-client.service';
 import { DetailComponent } from './components/detail/detail.component';
-import { CarouselModule } from 'primeng/carousel';
-import { ButtonModule } from 'primeng/button';
-import { SliderModule } from 'primeng/slider';
-import { DropdownModule } from 'primeng/dropdown';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { ListPostsComponent } from './components/list-posts/list-posts.component'
 
 
 @NgModule({
@@ -25,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    DetailComponent
+    DetailComponent,
+    AddPostComponent,
+    ListPostsComponent
   ],
   imports: [
     HttpClientModule,
@@ -33,10 +33,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppRoutingModule,
     MyPrimeNgComponentsModule,
     FormsModule,
-    CarouselModule,
-    ButtonModule,
-    SliderModule,
-    DropdownModule,
     BrowserAnimationsModule
   ],
   providers: [HttpConfigService, ApiClientService],

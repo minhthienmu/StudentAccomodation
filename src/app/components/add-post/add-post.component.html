@@ -1,0 +1,42 @@
+<div class="p-grid">
+    <div class="p-col-2"></div>
+    <div class="p-col-8">
+        <p-card header="Đăng tin mới" [style]="{'margin-bottom': '2em'}">
+            <div class="p-field">
+                <label for="name">Tên căn hộ: </label>
+                <input type="username" aria-describedby="name" pInputText [(ngModel)]="data.name"/>
+            </div>
+            <div class="p-field">
+                <label for="address">Địa chỉ: </label>
+                <p-dropdown [options]="districts" [(ngModel)]="data.address" optionLabel="value"></p-dropdown>
+            </div>
+            <div class="p-field">
+                <label for="category">Loại: </label>
+                <p-dropdown [options]="categories" [(ngModel)]="data.categories" optionLabel="value"></p-dropdown>
+            </div>
+            <div class="p-field">
+                <label for="price">Giá thuê: </label>
+                <p-inputNumber inputId="integeronly" [(ngModel)]="data.price"></p-inputNumber>
+            </div>
+            <div class="p-field">
+                <label for="description">Mô tả: </label>
+                <textarea rows="3" cols="52" pInputTextarea [(ngModel)]="data.description"></textarea>
+            </div>
+            <div class="p-field">
+                <label for="description">Upload Ảnh: </label>
+                <p-fileUpload name="images[]" customUpload="true" multiple="multiple" fileLimit="4" (uploadHandler)="onUpload($event)">
+                    <ng-template pTemplate="content">
+                        <ul *ngIf="uploadedFiles.length">
+                            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                        </ul>
+                    </ng-template>
+            </p-fileUpload>
+            </div>
+        </p-card>
+        <div class="submit" style="text-align: center;">
+            <p-button label="Submit" (onClick)="onSubmit()"></p-button>
+        </div>
+    </div>
+    <div class="p-col-2"></div>
+</div>
+  

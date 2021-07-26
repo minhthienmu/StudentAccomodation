@@ -8,7 +8,11 @@ import {InputTextModule} from 'primeng/inputtext';
 import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
 import {CardModule} from 'primeng/card';
-
+import { CarouselModule } from 'primeng/carousel';
+import { SliderModule } from 'primeng/slider';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   declarations: [],
@@ -21,7 +25,12 @@ import {CardModule} from 'primeng/card';
     InputTextModule,
     RatingModule,
     RippleModule,
-    CardModule
+    CardModule,
+    CarouselModule,
+    SliderModule,
+    InputNumberModule,
+    InputTextareaModule,
+    FileUploadModule
   ],
   exports: [
     ButtonModule,
@@ -32,7 +41,12 @@ import {CardModule} from 'primeng/card';
     InputTextModule,
     RatingModule,
     RippleModule,
-    CardModule
+    CardModule,
+    CarouselModule,
+    SliderModule,
+    InputNumberModule,
+    InputTextareaModule,
+    FileUploadModule
   ]
 })
 export class MyPrimeNgComponentsModule {

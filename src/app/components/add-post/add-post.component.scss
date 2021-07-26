@@ -1,0 +1,22 @@
+.sizes {
+    .p-inputtext {
+        display: block;
+        margin-bottom: .5rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+:host ::ng-deep input {
+    width: 400px;
+}
+
+.p-field * {
+    display: block;
+}
+
+:host ::ng-deep .p-dropdown {
+    width: 400px;
+}
