@@ -7,7 +7,15 @@
             <div class="p-fluid">
                 <div class="p-field">
                     <label for="firstname1">Quận</label>
-                    <input id="firstname1" type="text" pInputText [(ngModel)]="address" #name="ngModel">
+                    <!-- <input id="firstname1" type="text" pInputText [(ngModel)]="address" #name="ngModel">-->
+                    <p-dropdown
+                      [options]="districts"
+                      [(ngModel)]="address"
+                      optionLabel="value"
+                      dataKey="key"
+                      [filter]="true"
+                      (onChange)="selectDistrict($event)"
+                    ></p-dropdown>
                 </div>
                 <div class="p-field">
                     <label for="lastname1">Giá tiền: &nbsp;</label>
@@ -16,6 +24,7 @@
                     <p-slider [(ngModel)]="rangeValues" [range]="true" [step]="100000"
                       [min]="500000"
                       [max]="10000000"
+                      (onChange)="selectPrice($event)"
                     ></p-slider>
                 </div>
             </div>
@@ -25,7 +34,7 @@
 
     <div class="p-col-9">
         <p-card>
-            <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name"
+            <p-dataView #dv [value]="filteredProducts" [paginator]="true" [rows]="9" filterBy="name"
             [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
             <ng-template pTemplate="header">
                 <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">

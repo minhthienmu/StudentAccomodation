@@ -3,14 +3,14 @@
     <div class="p-grid">
       <div class="p-col-5">
         <div class="detail-img">
-          <p-carousel [value]="products" [numVisible]="1" [numScroll]="1" [circular]="false">
-            <ng-template let-product pTemplate="item">
+          <p-carousel *ngIf="images.length !== 0" [value]="images" [numVisible]="1" [numScroll]="1" [circular]="false">
+            <ng-template let-image pTemplate="item">
                 <div class="product-item">
                     <div class="product-item-content">
                         <div class="p-mb-3">
                         </div>
                         <div>
-                          <img class="p-img-fluid" src="{{ product.src }}" alt="a">
+                          <img class="p-img-fluid" src="{{ image.src }}" alt="a">
                         </div>
                     </div>
                 </div>
@@ -18,26 +18,26 @@
           </p-carousel>
         </div>
       </div>
-      <div class="p-col-7 p-pl-4">
+      <div class="p-col-7 p-pl-4" *ngIf="product">
         <div class="detail-contents">
           <div class="content">
-            <div class="title">KHAI TRƯƠNG KTX - Ở GHÉP CÓ TRANG BỊ PHÒNG GYM - Sức Chứa 300 Chỗ - Cho Thuê Ngắn Ngày.</div>
+            <div class="title"> {{ product.name }} </div>
           </div>
           <div class="content">
             <div class="title">Giá: </div>
-            <span class="desc p-pl-2">1.500.000</span><span>triệu / tháng</span>
+            <span class="desc p-pl-2">{{ product.price }}</span><span>triệu / tháng</span>
           </div>
-          <div class="content">
+          <!-- <div class="content">
             <div class="title">Diện tích: </div>
             <span class="desc p-pl-2">30</span><span>m</span><sup>2</sup>
-          </div>
+          </div> -->
           <div class="content">
             <div class="title">Địa chỉ: </div>
-            <span class="desc p-pl-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, accusamus!</span>
+            <span class="desc p-pl-2"> {{ product.address }} </span>
           </div>
           <div class="content">
             <div class="title">Mô tả: </div>
-            <span class="desc p-pl-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta assumenda, perferendis dignissimos consequuntur dolor eos optio accusantium itaque nostrum sunt et numquam esse? Facilis fugit laudantium itaque dolor, vel et.</span>
+            <span class="desc p-pl-2">{{ product.description }}</span>
           </div>
           <div class="content">
             <div class="title">Thông tin liên hệ: </div>
@@ -52,14 +52,6 @@
             <div class="contact p-grid">
               <div class="p-col-3">
                 Số điện thoại:
-              </div>
-              <div class="p-col-5">
-                099 99 99 99
-              </div>
-            </div>
-            <div class="contact p-grid">
-              <div class="p-col-3">
-                Zalo:
               </div>
               <div class="p-col-5">
                 099 99 99 99

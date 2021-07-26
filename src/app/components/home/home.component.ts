@@ -1,10 +1,12 @@
 import {Component} from '@angular/core';
-import { ProductService } from '../../productservice';
-import { Product } from '../../product';
+// import { ProductService } from '../../productservice';
+// import { Product } from '../../product';
 import {SelectItem} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { APIService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { districts } from './data'
+import { IProduct } from '../../models/product.model'
 
 @Component({
   selector: 'app-home',
@@ -14,9 +16,14 @@ import { Router } from '@angular/router';
 
 export class HomeComponent {
   sortKey: any;
-  products: Product[];
+  products: IProduct[] = [];
+  filteredProducts: IProduct[] = [];
   price: number;
   address: string;
+  districts: {key: number, value: string}[] = districts;
+  selectedDistrict: string = districts[0].value;
+
+  selectedPrice = {min:50000, max: 10000000};
 
   sortOptions: SelectItem[];
 
@@ -55,14 +62,29 @@ export class HomeComponent {
       }
   }
 
+  selectDistrict(e): void {
+    this.selectedDistrict = e.value.value;
+    console.log('this.selectedDistrict: ', this.selectedDistrict);
+  }
+
+  selectPrice(e): void {
+    console.log('e: ', e);
+    this.selectedPrice.min = e.values[0] ? e.values[0] : this.selectedPrice.min;
+    this.selectedPrice.max = e.values[1] ? e.values[1] : this.selectedPrice.max;
+  }
+
   showDetail(id) {
-    this.router.navigate(['/detail', id]);
+    this.router.navigate(['/detail'], { queryParams: { id } });
   }
 
   filter() {
-    if (this.address != null && this.address != null) {
-      this.products = this.products.filter(e => (e.address === this.address && e.price == this.price));
-    }
+    this.filteredProducts = this.products.filter(item => {
+      if ( (item.address === this.selectedDistrict || this.selectedDistrict === 'Tất cả') && (item.price <= this.selectedPrice.max && item.price >= this.selectedPrice.min)
+      ) {
+        return true;
+      }
+      return false;
+    });
   }
 
   //API
@@ -70,6 +92,7 @@ export class HomeComponent {
     this.apiService.httpGet('getAccomodations', (res) => {
       if (res.code === 200) {
         this.products = res.data;
+        this.filteredProducts = this.products;
       }
     }, () => {});
   }
