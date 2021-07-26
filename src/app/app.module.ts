@@ -17,7 +17,9 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { SliderModule } from 'primeng/slider';
 import { DropdownModule } from 'primeng/dropdown';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostListComponent } from './components/admin/post-list/post-list.component';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    DetailComponent
+    DetailComponent,
+    PostListComponent
   ],
   imports: [
     HttpClientModule,
@@ -37,7 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     ButtonModule,
     SliderModule,
     DropdownModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TableModule
   ],
   providers: [HttpConfigService, ApiClientService],
   bootstrap: [AppComponent]
