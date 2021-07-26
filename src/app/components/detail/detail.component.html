@@ -18,14 +18,14 @@
           </p-carousel>
         </div>
       </div>
-      <div class="p-col-7 p-pl-4" *ngIf="product">
+      <div class="p-col-7 p-pl-4" *ngIf="data">
         <div class="detail-contents">
           <div class="content">
-            <div class="title"> {{ product.name }} </div>
+            <div class="title" style="font-size: 1.5rem;"> {{ data.name }} </div>
           </div>
           <div class="content">
             <div class="title">Giá: </div>
-            <span class="desc p-pl-2">{{ product.price }}</span><span>triệu / tháng</span>
+            <span class="desc p-pl-2">{{ data.price }}</span><span> triệu/tháng</span>
           </div>
           <!-- <div class="content">
             <div class="title">Diện tích: </div>
@@ -33,11 +33,11 @@
           </div> -->
           <div class="content">
             <div class="title">Địa chỉ: </div>
-            <span class="desc p-pl-2"> {{ product.address }} </span>
+            <span class="desc p-pl-2"> {{ data.address }} </span>
           </div>
           <div class="content">
             <div class="title">Mô tả: </div>
-            <span class="desc p-pl-2">{{ product.description }}</span>
+            <span class="desc p-pl-2">{{ data.description }}</span>
           </div>
           <div class="content">
             <div class="title">Thông tin liên hệ: </div>
