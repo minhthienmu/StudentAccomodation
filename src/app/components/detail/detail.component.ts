@@ -42,7 +42,6 @@ export class DetailComponent implements OnInit {
 
     this.apiService.httpGetWithParams('getAccomodationDetail', params, (res) => {
       if (res.code === 200) {
-        console.log(res.data);
         this.data = res.data;
         Object.keys(this.data).forEach((key) => {
           if (key.includes('image')) {
@@ -50,7 +49,6 @@ export class DetailComponent implements OnInit {
           }
         });
       }
-      console.log('this.images: ', this.images);
     }, ()=>{});
   }
 

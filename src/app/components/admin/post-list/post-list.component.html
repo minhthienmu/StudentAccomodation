@@ -1,3 +1,7 @@
+<p-toast></p-toast>
+<div class="post" style="margin-left: 20px">
+  <p-button label="Đăng tin" (onClick)="onPost()"></p-button>
+</div>
 <p-table
   #dt
   [value]="products"
@@ -11,35 +15,19 @@
   [paginator]="true"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
   [filterDelay]="0"
-  [globalFilterFields]="[
-    'name',
-    'country.name',
-    'representative.name',
-    'status'
-  ]"
 >
   <ng-template pTemplate="caption">
     <div class="table-header">
-      Danh sách bài đăng
-      <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input
-          pInputText
-          type="text"
-          (input)="dt.filterGlobal($event.target.value, 'contains')"
-          placeholder="Global Search"
-        />
-      </span>
+      <h3>Danh sách bài đăng</h3>
     </div>
   </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th style="width: 3rem"></th>
       <th pSortableColumn="name">
-        Tên nhà trọ <p-sortIcon field="name"></p-sortIcon>
+        Tên <p-sortIcon field="name"></p-sortIcon>
       </th>
       <th pSortableColumn="category">
-        Nhóm <p-sortIcon field="category"></p-sortIcon>
+        Loại <p-sortIcon field="category"></p-sortIcon>
       </th>
       <th pSortableColumn="address">
         Địa chỉ <p-sortIcon field="address"></p-sortIcon>
@@ -50,8 +38,8 @@
       <th pSortableColumn="description">
         Mô tả <p-sortIcon field="description"></p-sortIcon>
       </th>
-      <th pSortableColumn="updatedAt">
-        Cập nhật ngày <p-sortIcon field="updatedAt"></p-sortIcon>
+      <th pSortableColumn="createdAt">
+        Ngày đăng <p-sortIcon field="createdAt"></p-sortIcon>
       </th>
       <th style="width: 8rem"></th>
       <th style="width: 8rem"></th>
@@ -60,9 +48,6 @@
   </ng-template>
   <ng-template pTemplate="body" let-product>
     <tr class="p-selectable-row">
-      <td>
-        <p-tableCheckbox [value]="product"></p-tableCheckbox>
-      </td>
       <td>
         {{ product.name }}
       </td>
@@ -79,14 +64,15 @@
         <span class="image-text">{{ product.description }}</span>
       </td>
       <td>
-        <span class="image-text">{{ product.updatedAt }}</span>
+        <span class="image-text">{{ product.createdAt }}</span>
       </td>
       <td style="text-align: center">
         <button
           pButton
           type="button"
           class="p-button-secondary"
-          icon="pi pi-cog"
+          icon="pi pi-arrow-right"
+          (click)="onDetail(product._id)"
         ></button>
       </td>
       <td style="text-align: center">
@@ -94,14 +80,15 @@
           pButton
           type="button"
           class="p-button-secondary"
-          icon="pi pi-cog"
+          icon="pi pi-trash"
+          (click)="onDelete(product._id)"
         ></button>
       </td>
     </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage">
     <tr>
-      <td colspan="8">No customers found.</td>
+      <td colspan="8">No accomodation found.</td>
     </tr>
   </ng-template>
 </p-table>
